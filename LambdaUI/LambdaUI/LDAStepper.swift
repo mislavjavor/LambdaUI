@@ -1,18 +1,19 @@
 //
-//  LDAButton.swift
+//  LDAStepper.swift
 //  LambdaUI
 //
-//  Created by Mislav Javor on 02/05/16.
+//  Created by Mislav Javor on 03/05/16.
 //  Copyright © 2016 Mislav Javor. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
+
 @IBDesignable
-public class LDAButton : UIButton {
+public class LDAStepper : UIStepper {
     
-    public var events : LDABaseHandler<UIButton>!
+    public var events : LDABaseHandler<UIStepper>!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,4 +28,5 @@ public class LDAButton : UIButton {
     private func addEventsToLambda() {
         events = LDABaseHandler(control: self)
     }
+    
 }

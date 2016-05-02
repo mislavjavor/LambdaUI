@@ -21,17 +21,27 @@
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-Uh-iaj">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-Uh-iaj" customClass="LDAStepper" customModule="LambdaUI">
                                 <rect key="frame" x="253" y="323" width="94" height="29"/>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yS2-Mi-40F">
                                 <rect key="frame" x="279" y="360" width="43" height="30"/>
                                 <state key="normal" title="No Ha"/>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R1A-26-ot4" customClass="LDATextField" customModule="LambdaUI">
+                                <rect key="frame" x="252" y="398" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="80G-4B-Nx4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yS2-Mi-40F" firstAttribute="top" secondItem="h4z-Uh-iaj" secondAttribute="bottom" constant="8" id="4qS-ct-rr6"/>
+                            <constraint firstItem="R1A-26-ot4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7pe-DR-lBi"/>
+                            <constraint firstItem="R1A-26-ot4" firstAttribute="top" secondItem="yS2-Mi-40F" secondAttribute="bottom" constant="8" id="L6j-Fd-9zX"/>
                             <constraint firstItem="Yks-zv-MY6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vr0-mh-oOD"/>
                             <constraint firstItem="h4z-Uh-iaj" firstAttribute="top" secondItem="Yks-zv-MY6" secondAttribute="bottom" constant="8" id="Z8J-Wu-HVE"/>
                             <constraint firstItem="Yks-zv-MY6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dDN-Wa-SQ7"/>
@@ -42,6 +52,8 @@
                     <connections>
                         <outlet property="button" destination="Yks-zv-MY6" id="R2g-P8-eh3"/>
                         <outlet property="noHButton" destination="yS2-Mi-40F" id="XTW-kM-Cr7"/>
+                        <outlet property="stepper" destination="h4z-Uh-iaj" id="dYj-Kh-0St"/>
+                        <outlet property="textField" destination="R1A-26-ot4" id="tT6-Ki-hJ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

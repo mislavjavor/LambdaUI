@@ -11,6 +11,8 @@
 		385FA4031CD7E6D000CC39F9 /* LDAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4021CD7E6D000CC39F9 /* LDAButton.swift */; };
 		385FA4051CD7E7D500CC39F9 /* LDAUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4041CD7E7D500CC39F9 /* LDAUtilities.swift */; };
 		385FA40A1CD7F2AB00CC39F9 /* LDABaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4091CD7F2AB00CC39F9 /* LDABaseHandler.swift */; };
+		38C0F0961CD81244009B08BC /* LDAStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C0F0951CD81244009B08BC /* LDAStepper.swift */; };
+		38C0F0981CD81449009B08BC /* LDATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C0F0971CD81449009B08BC /* LDATextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		385FA4021CD7E6D000CC39F9 /* LDAButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAButton.swift; sourceTree = "<group>"; };
 		385FA4041CD7E7D500CC39F9 /* LDAUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAUtilities.swift; sourceTree = "<group>"; };
 		385FA4091CD7F2AB00CC39F9 /* LDABaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDABaseHandler.swift; sourceTree = "<group>"; };
+		38C0F0951CD81244009B08BC /* LDAStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAStepper.swift; sourceTree = "<group>"; };
+		38C0F0971CD81449009B08BC /* LDATextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDATextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				385FA4021CD7E6D000CC39F9 /* LDAButton.swift */,
+				38C0F0951CD81244009B08BC /* LDAStepper.swift */,
+				38C0F0971CD81449009B08BC /* LDATextField.swift */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -149,7 +155,9 @@
 			files = (
 				385FA4051CD7E7D500CC39F9 /* LDAUtilities.swift in Sources */,
 				385FA4031CD7E6D000CC39F9 /* LDAButton.swift in Sources */,
+				38C0F0981CD81449009B08BC /* LDATextField.swift in Sources */,
 				385FA40A1CD7F2AB00CC39F9 /* LDABaseHandler.swift in Sources */,
+				38C0F0961CD81244009B08BC /* LDAStepper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
