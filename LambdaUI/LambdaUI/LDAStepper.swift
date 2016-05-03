@@ -14,6 +14,7 @@ import UIKit
 public class LDAStepper : UIStepper {
     
     public var events : LDABaseHandler<UIStepper>!
+    public var asyncEvents : LDABaseHandler<UIStepper>!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)

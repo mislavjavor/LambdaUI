@@ -38,6 +38,13 @@ public class LDABaseHandler<TControlType : UIControl>  {
         
         currentControl.addTarget(self, action: #selector(LDABaseHandler.touchUpInsideHandler(_:event:)), forControlEvents: .TouchUpInside)
         currentControl.addTarget(self, action: #selector(LDABaseHandler.valueChangedHandler(_:event:)), forControlEvents: .ValueChanged)
+        currentControl.addTarget(self, action: #selector(LDABaseHandler.touchDownHandler(_:event:)), forControlEvents: .TouchDown)
+        currentControl.addTarget(self, action: #selector(LDABaseHandler.touchDragInsideHandler(_:event:)), forControlEvents: .TouchDragInside)
+        currentControl.addTarget(self, action: #selector(LDABaseHandler.touchDragOutsideHandler(_:event:)), forControlEvents: .TouchDragOutside)
+        currentControl.addTarget(self, action: #selector(LDABaseHandler.touchDragEnterHandler(_:event:)), forControlEvents: .TouchDragEnter)
+        currentControl.addTarget(self, action: #selector(LDABaseHandler.touchDragExitHandler(_:event:)), forControlEvents: .TouchDragExit)
+        currentControl.addTarget(self, action: #selector(LDABaseHandler.touchUpOutsideHandler(_:event:)), forControlEvents: .TouchUpOutside)
+        currentControl.addTarget(self, action: #selector(LDABaseHandler.touchCancelHandler(_:event:)), forControlEvents: .TouchCancel)
     }
     
     @objc internal func touchUpInsideHandler(control: UIControl, event: UIEvent) {
