@@ -55,6 +55,79 @@ stepper.events.valueChanged = { stepper, event in
 }
 ```
 
+Your usage can be the same as with the usual methods, the only different thing is the assignment
+
+```swift
+class SomeVC : ... {
+    @IBOutlet weak var someButton : LDAButton!
+    ...
+    
+    override viewDidLoad ... {
+        someButton.events.touchUpInside = someButtonClicked
+    }
+    
+    func someButtonClicked(button : LDAButton, event : UITouchEvent) {
+        // Handle
+    }
+}
+```
 The usage will be equivalent for all the other `UIControl` instances once the wrappers are made
 
+### 2.1.? Not yet implemented, example syntax
+
+#### 2.1.?.1 Multiple lambdas for the same event
+
+```swift
+let eventIdentifier = button.events.touchUpInside += { stepper, event in 
+    // Handle some work
+}
+
+let otherIdentifier = button.events.touchUpInside += { stepper, event in
+    //Handle some other work
+}
+
+// Temporarily stopping events
+button.events.touchUpInside.makeIdle(eventIdentifier)
+
+// Reassigning events
+button.events.touchUpInside.resume(eventIdentifier)
+
+// Removing events
+button.events.touchUpInside -= eventIdentifier
+// Alternate syntax
+button.events.touchUpInside.remove(eventIdentifier)
+```
+
+#### 2.1.?.2 Automatic asynchronous event handling
+
+Library should use GCD for aynchronous event dispatching
+
+```swift
+let eventHandler = button.events.touchUpInside += async { button, event in
+    // Perform event asynchronously
+}
+// Alternate syntax
+let anotherHandler = button.events.touchUpInside.addAsyncEventHandler { button, event in
+    // Do sth
+}
+
+let otherHandler = button.events.touchUpInside += async { button, event in
+    // Once called, these actions will be performed concurrently
+}
+
+// Define a running queue for the action (NOTE: If the return value is ignored is ommited, you cannot control the event)
+button.events.touchUpInside += async(dispatch_get_global_queue(Int(queueName)) { button, event
+    // Handle
+}
+
+// Helper enums
+button.events.touchUpInside += async(.UtilityQueue) { button, event in
+    // Handle
+}
+
+// Alternative syntax
+button.events.touchUpInside.addAsyncEventHandler(.UtilityQueue) {
+    // Handle
+}
+```
 
