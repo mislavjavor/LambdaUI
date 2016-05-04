@@ -131,3 +131,32 @@ button.events.touchUpInside.addAsyncEventHandler(.UtilityQueue) {
 }
 ```
 
+#### 2.1.?.3 Bind multiple same-type widgets to the same event
+
+```swift
+let group = LDAGroup(button1, button2, button3)
+
+let eventIdentifier = group.events.touchUpInside += { eventElementPairs, event in
+    // Trigger event if it was triggered on any of the group
+    for pair in eventElementPairs {
+        // eventElementPairs contains the collection of UI elements and the event identifiers this event created
+        pair.element -= pair.event
+    }
+}
+
+// Removes events from all of the group
+group.events.touchUpInside -= eventIdentifier
+
+
+group.append(button4) // Automatically added to the event group -> will perform the same event the next time it is triggered
+
+```
+
+All the standard extensions should work on the group
+
+```swift
+group.events.touchUpInside += async(.UtilityQueue) { event in 
+    //Handle
+}
+```
+
