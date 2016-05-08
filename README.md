@@ -28,6 +28,7 @@ In my personal opinion, the event system in iOS/CocoaTouch is severely broken. I
 ### Setup
 
 In order for your component to be able to use the `LambdaUI` framework either:
+
 1. Go to the storyboard and change the `class` of the view with the equivalent `LambdaUI` view. E.g. change the `UIButton` class to `LDAButton`. This pattern is respected everywhere, so `UIStepper` becomes `LDAStepper` and `UISegmentedControl` becomes `LDASegmentedControl` etc...
 2. Initialize your element as the `LambdaUI` equivalent. For example `let button = LDAButton(frame: CGRect(...))`
 
@@ -108,25 +109,6 @@ LambdaUI makes adding async events extremely easy
         slider.events.valueChanged -= identifier // Remove the async event normally
     }
 }
-```
-
-## Main features
-
-### 1. Add and remove multiple events as lambdas to UI elements
-Example
-
-```swift
-let eventIdentifier = button.events.touchUpInside += { button, event in
-    // Adding the first event
-    print("Hello world")
-}
-let secondIdentifier = button.events.touchUpInside += { _ in
-    // Adding the second event
-    print("Hello again")
-}
-
-// Removing the second event
-button.events.touchUpInside -= secondIdentifier
 ```
 
 ## Contributing
