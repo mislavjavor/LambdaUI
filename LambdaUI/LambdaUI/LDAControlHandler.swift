@@ -29,7 +29,9 @@ public class LDAControlHandler<TControlType : UIControl>  {
     public var editingDidEnd : [LDAEvent<TControlType, Void>] = [LDAEvent<TControlType, Void>]()
     public var editingDidBegin : [LDAEvent<TControlType, Void>] = [LDAEvent<TControlType, Void>]()
     public var editingDidEndOnExit : [LDAEvent<TControlType, Void>] = [LDAEvent<TControlType, Void>]()
+    
     public var primaryActionTriggered : [LDAEvent<TControlType, Void>] = [LDAEvent<TControlType, Void>]()
+    
     
 
     private let currentControl : TControlType
@@ -59,7 +61,9 @@ public class LDAControlHandler<TControlType : UIControl>  {
         currentControl.addTarget(self, action: #selector(LDAControlHandler.editingDidEndHandler(_:event:)), forControlEvents: .EditingDidEnd)
         currentControl.addTarget(self, action: #selector(LDAControlHandler.editingDidBeginHandler(_:event:)), forControlEvents: .EditingDidBegin)
         currentControl.addTarget(self, action: #selector(LDAControlHandler.editingDidEndOnExitHandler(_:event:)), forControlEvents: .EditingDidEndOnExit)
+        if #available(iOS 9, *) {
         currentControl.addTarget(self, action: #selector(LDAControlHandler.primaryActionTriggeredHandler(_:event:)), forControlEvents: .PrimaryActionTriggered)
+        }
         currentControl.addTarget(self, action: #selector(LDAControlHandler.touchCancelHandler(_:event:)), forControlEvents: .TouchCancel)
         
         
