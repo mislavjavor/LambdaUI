@@ -1,5 +1,5 @@
 //
-//  LDATextField.swift
+//  LDAPageControl.swift
 //  LambdaUI
 //
 //  Created by Mislav Javor on 08/05/16.
@@ -9,9 +9,9 @@
 import Foundation
 
 @IBDesignable
-public class LDATextField : UITextField {
+public class LDAPageControl : UIPageControl {
     
-    public var events : LDAControlHandler<UITextField>!
+    public var events : LDAControlHandler<UIPageControl>!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)

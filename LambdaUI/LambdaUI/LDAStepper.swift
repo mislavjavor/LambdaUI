@@ -1,4 +1,5 @@
 //
+
 //  LDAStepper.swift
 //  LambdaUI
 //
@@ -13,8 +14,7 @@ import UIKit
 @IBDesignable
 public class LDAStepper : UIStepper {
     
-    public var events : LDABaseHandler<UIStepper>!
-    public var asyncEvents : LDABaseHandler<UIStepper>!
+    public var events : LDAControlHandler<UIStepper>!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,9 +25,8 @@ public class LDAStepper : UIStepper {
         super.init(coder: aDecoder)
         addEventsToLambda()
     }
-    
     private func addEventsToLambda() {
-        events = LDABaseHandler(control: self)
+        events = LDAControlHandler(control: self)
     }
     
 }

@@ -12,7 +12,7 @@ import UIKit
 @IBDesignable
 public class LDAButton : UIButton {
     
-    public var events : LDABaseHandler<UIButton>!
+    public var events : LDAControlHandler<UIButton>!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +25,6 @@ public class LDAButton : UIButton {
     }
     
     private func addEventsToLambda() {
-        events = LDABaseHandler(control: self)
+        events = LDAControlHandler(control: self)
     }
 }

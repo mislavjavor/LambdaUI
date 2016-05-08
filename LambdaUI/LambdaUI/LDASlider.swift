@@ -1,5 +1,5 @@
 //
-//  LDATextField.swift
+//  LDASlider.swift
 //  LambdaUI
 //
 //  Created by Mislav Javor on 08/05/16.
@@ -9,9 +9,9 @@
 import Foundation
 
 @IBDesignable
-public class LDATextField : UITextField {
+public class LDASlider : UISlider {
     
-    public var events : LDAControlHandler<UITextField>!
+    public var events : LDAControlHandler<UISlider>!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)

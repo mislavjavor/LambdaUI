@@ -1,0 +1,24 @@
+//
+//  LDAEvent.swift
+//  LambdaUI
+//
+//  Created by Mislav Javor on 05/05/16.
+//  Copyright © 2016 Mislav Javor. All rights reserved.
+//
+
+import Foundation
+
+struct LDAEvent<TParams, TReturnValue> {
+    
+    typealias EventFunction = (TParams) -> TReturnValue?
+    
+    var eventFunction : EventFunction = { _ in return nil}
+    
+    func performSync() {
+        
+    }
+    
+    func performAsync() {
+      
+    
+}
