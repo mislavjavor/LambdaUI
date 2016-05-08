@@ -1,6 +1,5 @@
 # LambdaUI
 
-[![CI Status](http://img.shields.io/travis/Mislav Javor/LambdaUI.svg?style=flat)](https://travis-ci.org/Mislav Javor/LambdaUI)
 [![Version](https://img.shields.io/cocoapods/v/LambdaUI.svg?style=flat)](http://cocoapods.org/pods/LambdaUI)
 
 ## Example
