@@ -16,13 +16,13 @@ Lambda driven event handling in CocoaTouch framework
 
 ## 2. Usage
 
-## 2.1 `UIControl`
+### 2.1 `UIControl`
 
-### 2.1.1 Preparation
+#### 2.1.1 Preparation
 
 In the `storyboard`, change the class of the UIControl to the equivalent LambdaUI control.
 
-### 2.1.2 Standard usage
+#### 2.1.2 Standard usage
 
 UIButton equivalent is called `LDAButton`. Drag the outlet and call use the method like this
 
@@ -33,7 +33,7 @@ button.events.touchUpInside = { button, event in
 }
 ```
 
-### 2.1.3 Event invalidation / chaining
+#### 2.1.3 Event invalidation / chaining
 
 Have one event start waiting for some action only after another element has been played, or invalidate the current event 
 
@@ -73,9 +73,9 @@ class SomeVC : ... {
 ```
 The usage will be equivalent for all the other `UIControl` instances once the wrappers are made
 
-### 2.1.? Not yet implemented, example syntax
+#### 2.1.? Not yet implemented, example syntax
 
-#### 2.1.?.1 Multiple lambdas for the same event
+##### 2.1.?.1 Multiple lambdas for the same event
 
 ```swift
 let eventIdentifier = button.events.touchUpInside += { stepper, event in 
@@ -98,7 +98,7 @@ button.events.touchUpInside -= eventIdentifier
 button.events.touchUpInside.remove(eventIdentifier)
 ```
 
-#### 2.1.?.2 Automatic asynchronous event handling
+##### 2.1.?.2 Automatic asynchronous event handling
 
 Library should use GCD for aynchronous event dispatching
 
@@ -128,6 +128,35 @@ button.events.touchUpInside += async(.UtilityQueue) { button, event in
 // Alternative syntax
 button.events.touchUpInside.addAsyncEventHandler(.UtilityQueue) {
     // Handle
+}
+```
+
+##### 2.1.?.3 Bind multiple same-type widgets to the same event
+
+```swift
+let group = LDAGroup(button1, button2, button3)
+
+let eventIdentifier = group.events.touchUpInside += { eventElementPairs, event in
+    // Trigger event if it was triggered on any of the group
+    for pair in eventElementPairs {
+        // eventElementPairs contains the collection of UI elements and the event identifiers this event created
+        pair.element -= pair.event
+    }
+}
+
+// Removes events from all of the group
+group.events.touchUpInside -= eventIdentifier
+
+
+group.append(button4) // Automatically added to the event group -> will perform the same event the next time it is triggered
+
+```
+
+All the standard extensions should work on the group
+
+```swift
+group.events.touchUpInside += async(.UtilityQueue) { event in 
+    //Handle
 }
 ```
 
