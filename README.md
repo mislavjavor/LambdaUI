@@ -10,7 +10,7 @@ The project is still under construction - the final product should include stuff
 
 ## Example
 
-To run the example project, clone the repo, and open the LambdaUI.xcworkspace
+To run the example project, clone the repo, and open `LambdaUI.xcworkspace`
 ## Installation
 
 LambdaUI is available through [CocoaPods](http://cocoapods.org). To install
