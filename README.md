@@ -42,7 +42,7 @@ Adding targets and `#selector(...)` arguments is cumbersome and stupid. Dragging
 
 That's where LambdaUI comes into play
 
-Ad events simply by calling the `+=` operator on the `<event name>` property of the  `events` propery of you `view`
+Add events simply by calling the `+=` operator on the `<event name>` property of the  `events` propery of you `view`
 ```swift
 let button = LDAButton(frame : CGRect(...))
 button.events.touchUpInside += { button, event in
