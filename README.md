@@ -1,9 +1,9 @@
 # LambdaUI
 
+
+![Logo](http://i.imgur.com/90cVzLB.png)
+
 [![Version](https://img.shields.io/cocoapods/v/LambdaUI.svg?style=flat)](http://cocoapods.org/pods/LambdaUI)
-
-![Logo](http://i.imgur.com/cGwZ8w2.png)
-
 ## Note
 
 The project is still under construction - the final product should include stuff like TableView, CollectionView, ViewControllers etc... or maybe not, I'm still considering some stuff. Anyway, think of this as the showcase, and expect more to come
