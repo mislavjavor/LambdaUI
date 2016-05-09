@@ -36,7 +36,7 @@ In order for your component to be able to use the `LambdaUI` framework either:
 1. Go to the storyboard and change the `class` of the view with the equivalent `LambdaUI` view. E.g. change the `UIButton` class to `LDAButton`. This pattern is respected everywhere, so `UIStepper` becomes `LDAStepper` and `UISegmentedControl` becomes `LDASegmentedControl` etc...
 2. Initialize your element as the `LambdaUI` equivalent. For example `let button = LDAButton(frame: CGRect(...))`
 
-### 1. Pain free events in CocaTouch
+### 1. Easy and intuitive events in CocoaTouch
 Adding targets and `#selector(...)` arguments is cumbersome and stupid. Dragging outlets is even worse - you must look at the storyboard to see what is related to what and no functionallity is glanceable. A modern framework should have a better way of handling these issues.
 
 That's where LambdaUI comes into play
