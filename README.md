@@ -8,6 +8,10 @@
 
 The project is still under construction - the final product should include stuff like TableView, CollectionView, ViewControllers etc... or maybe not, I'm still considering some stuff. Anyway, think of this as the showcase, and expect more to come
 
+## Requirements
+
+Minimum `iOS 8.0`
+
 ## Example
 
 To run the example project, clone the repo, and open `LambdaUI.xcworkspace`
