@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,67 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yks-zv-MY6" customClass="LDAButton" customModule="LambdaUI">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH8-6C-B3e">
+                                <rect key="frame" x="20" y="20" width="102" height="30"/>
+                                <state key="normal" title="Regular button"/>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-Uh-iaj" customClass="LDAStepper" customModule="LambdaUI">
-                                <rect key="frame" x="253" y="323" width="94" height="29"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H06-Ej-vD5">
+                                <rect key="frame" x="486" y="28" width="94" height="29"/>
                             </stepper>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lmn-8I-vdA" customClass="LDADatePicker" customModule="LambdaUI">
-                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
-                                <date key="date" timeIntervalSinceReferenceDate="484427357.66799003">
-                                    <!--2016-05-08 19:09:17 +0000-->
-                                </date>
-                            </datePicker>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wDT-Oz-r2Q" customClass="LDASlider" customModule="LambdaUI">
-                                <rect key="frame" x="18" y="247" width="564" height="31"/>
-                            </slider>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSf-z6-OD7" customClass="LDASwitch" customModule="LambdaUI">
-                                <rect key="frame" x="276" y="208" width="51" height="31"/>
-                            </switch>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qu1-xs-Qh4" customClass="LDASegmentedControl" customModule="LambdaUI">
-                                <rect key="frame" x="240" y="172" width="121" height="29"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cb7-zl-PYC" customClass="LDATextField" customModule="LambdaUI">
-                                <rect key="frame" x="20" y="134" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lmn-8I-vdA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4zg-iQ-q5h"/>
-                            <constraint firstItem="qu1-xs-Qh4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HTG-Tc-Iph"/>
-                            <constraint firstItem="oSf-z6-OD7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Iqd-nW-Tta"/>
-                            <constraint firstItem="wDT-Oz-r2Q" firstAttribute="top" secondItem="oSf-z6-OD7" secondAttribute="bottom" constant="8" id="OOm-Hg-OC8"/>
-                            <constraint firstItem="Yks-zv-MY6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vr0-mh-oOD"/>
-                            <constraint firstItem="h4z-Uh-iaj" firstAttribute="top" secondItem="Yks-zv-MY6" secondAttribute="bottom" constant="8" id="Z8J-Wu-HVE"/>
-                            <constraint firstAttribute="trailing" secondItem="lmn-8I-vdA" secondAttribute="trailing" id="ZXa-50-z4I"/>
-                            <constraint firstAttribute="trailing" secondItem="wDT-Oz-r2Q" secondAttribute="trailing" constant="20" id="b09-Tu-AWD"/>
-                            <constraint firstItem="Yks-zv-MY6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dDN-Wa-SQ7"/>
-                            <constraint firstItem="wDT-Oz-r2Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="eMh-Tx-ejZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lmn-8I-vdA" secondAttribute="bottom" id="eT6-vy-idM"/>
-                            <constraint firstAttribute="trailing" secondItem="Cb7-zl-PYC" secondAttribute="trailing" constant="20" id="flf-sh-LhF"/>
-                            <constraint firstItem="Cb7-zl-PYC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="hD2-TE-foI"/>
-                            <constraint firstItem="Yks-zv-MY6" firstAttribute="top" secondItem="wDT-Oz-r2Q" secondAttribute="bottom" constant="8" id="nAk-Kl-yQU"/>
-                            <constraint firstItem="h4z-Uh-iaj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u02-wa-5VL"/>
-                            <constraint firstItem="qu1-xs-Qh4" firstAttribute="top" secondItem="Cb7-zl-PYC" secondAttribute="bottom" constant="8" id="wPH-v0-duX"/>
-                            <constraint firstItem="oSf-z6-OD7" firstAttribute="top" secondItem="qu1-xs-Qh4" secondAttribute="bottom" constant="8" id="wVU-i5-ijR"/>
+                            <constraint firstAttribute="trailing" secondItem="H06-Ej-vD5" secondAttribute="trailing" constant="20" id="7rM-oU-7vh"/>
+                            <constraint firstItem="MH8-6C-B3e" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8iL-E1-rRr"/>
+                            <constraint firstItem="MH8-6C-B3e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="H3j-fx-ijJ"/>
+                            <constraint firstItem="H06-Ej-vD5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="hy0-JX-reE"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="button" destination="Yks-zv-MY6" id="R2g-P8-eh3"/>
-                        <outlet property="datePicker" destination="lmn-8I-vdA" id="DO0-RQ-FlM"/>
-                        <outlet property="segmentedConrol" destination="qu1-xs-Qh4" id="Ao2-ob-FYv"/>
-                        <outlet property="slider" destination="wDT-Oz-r2Q" id="6ON-SC-L3h"/>
-                        <outlet property="stepper" destination="h4z-Uh-iaj" id="dYj-Kh-0St"/>
-                        <outlet property="textField" destination="Cb7-zl-PYC" id="ikN-hH-j0l"/>
-                        <outlet property="uiSwitch" destination="oSf-z6-OD7" id="qYf-ga-OVd"/>
+                        <outlet property="regularButton" destination="MH8-6C-B3e" id="SKa-z2-1om"/>
+                        <outlet property="regularStepper" destination="H06-Ej-vD5" id="J60-rv-50k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,39 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3845FA411CDFC5C900CD2643 /* LDADatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845FA401CDFC5C900CD2643 /* LDADatePicker.swift */; };
-		3845FA431CDFCAAE00CD2643 /* LDAPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845FA421CDFCAAE00CD2643 /* LDAPageControl.swift */; };
-		3845FA451CDFCB2E00CD2643 /* LDASlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845FA441CDFCB2E00CD2643 /* LDASlider.swift */; };
-		3845FA471CDFCBA700CD2643 /* LDASwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845FA461CDFCBA700CD2643 /* LDASwitch.swift */; };
-		3845FA491CDFCBDD00CD2643 /* LDASegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845FA481CDFCBDD00CD2643 /* LDASegmentedControl.swift */; };
-		3845FA4B1CDFCC0100CD2643 /* LDATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845FA4A1CDFCC0100CD2643 /* LDATextField.swift */; };
+		381D0F181D25448300CB4522 /* ControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D0F171D25448300CB4522 /* ControlExtensions.swift */; };
 		385FA3DD1CD7E63D00CC39F9 /* LambdaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 385FA3DC1CD7E63D00CC39F9 /* LambdaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		385FA4031CD7E6D000CC39F9 /* LDAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4021CD7E6D000CC39F9 /* LDAButton.swift */; };
 		385FA4051CD7E7D500CC39F9 /* LDAUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4041CD7E7D500CC39F9 /* LDAUtilities.swift */; };
 		385FA40A1CD7F2AB00CC39F9 /* LDAControlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4091CD7F2AB00CC39F9 /* LDAControlHandler.swift */; };
 		387EAA6F1CDAACB900678E55 /* LDAEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EAA6E1CDAACB900678E55 /* LDAEvent.swift */; };
 		387EAA711CDD1E2B00678E55 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EAA701CDD1E2B00678E55 /* Operators.swift */; };
 		387EAA761CDD2BD600678E55 /* async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EAA751CDD2BD600678E55 /* async.swift */; };
-		38C0F0961CD81244009B08BC /* LDAStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C0F0951CD81244009B08BC /* LDAStepper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3845FA401CDFC5C900CD2643 /* LDADatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDADatePicker.swift; sourceTree = "<group>"; };
-		3845FA421CDFCAAE00CD2643 /* LDAPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAPageControl.swift; sourceTree = "<group>"; };
-		3845FA441CDFCB2E00CD2643 /* LDASlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDASlider.swift; sourceTree = "<group>"; };
-		3845FA461CDFCBA700CD2643 /* LDASwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDASwitch.swift; sourceTree = "<group>"; };
-		3845FA481CDFCBDD00CD2643 /* LDASegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDASegmentedControl.swift; sourceTree = "<group>"; };
-		3845FA4A1CDFCC0100CD2643 /* LDATextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDATextField.swift; sourceTree = "<group>"; };
+		381D0F171D25448300CB4522 /* ControlExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlExtensions.swift; sourceTree = "<group>"; };
 		385FA3D91CD7E63D00CC39F9 /* LambdaUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LambdaUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		385FA3DC1CD7E63D00CC39F9 /* LambdaUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LambdaUI.h; sourceTree = "<group>"; };
 		385FA3DE1CD7E63D00CC39F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		385FA4021CD7E6D000CC39F9 /* LDAButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAButton.swift; sourceTree = "<group>"; };
 		385FA4041CD7E7D500CC39F9 /* LDAUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAUtilities.swift; sourceTree = "<group>"; };
 		385FA4091CD7F2AB00CC39F9 /* LDAControlHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAControlHandler.swift; sourceTree = "<group>"; };
 		387EAA6E1CDAACB900678E55 /* LDAEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAEvent.swift; sourceTree = "<group>"; };
 		387EAA701CDD1E2B00678E55 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		387EAA751CDD2BD600678E55 /* async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = async.swift; sourceTree = "<group>"; };
-		38C0F0951CD81244009B08BC /* LDAStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDAStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +71,6 @@
 		385FA4081CD7F07A00CC39F9 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				385FA4021CD7E6D000CC39F9 /* LDAButton.swift */,
-				38C0F0951CD81244009B08BC /* LDAStepper.swift */,
-				3845FA401CDFC5C900CD2643 /* LDADatePicker.swift */,
-				3845FA421CDFCAAE00CD2643 /* LDAPageControl.swift */,
-				3845FA441CDFCB2E00CD2643 /* LDASlider.swift */,
-				3845FA461CDFCBA700CD2643 /* LDASwitch.swift */,
-				3845FA481CDFCBDD00CD2643 /* LDASegmentedControl.swift */,
-				3845FA4A1CDFCC0100CD2643 /* LDATextField.swift */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -103,6 +81,7 @@
 				387EAA701CDD1E2B00678E55 /* Operators.swift */,
 				387EAA6E1CDAACB900678E55 /* LDAEvent.swift */,
 				385FA4041CD7E7D500CC39F9 /* LDAUtilities.swift */,
+				381D0F171D25448300CB4522 /* ControlExtensions.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -201,19 +180,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3845FA4B1CDFCC0100CD2643 /* LDATextField.swift in Sources */,
 				385FA4051CD7E7D500CC39F9 /* LDAUtilities.swift in Sources */,
-				385FA4031CD7E6D000CC39F9 /* LDAButton.swift in Sources */,
 				387EAA711CDD1E2B00678E55 /* Operators.swift in Sources */,
-				3845FA411CDFC5C900CD2643 /* LDADatePicker.swift in Sources */,
-				3845FA471CDFCBA700CD2643 /* LDASwitch.swift in Sources */,
-				3845FA451CDFCB2E00CD2643 /* LDASlider.swift in Sources */,
-				3845FA491CDFCBDD00CD2643 /* LDASegmentedControl.swift in Sources */,
 				387EAA761CDD2BD600678E55 /* async.swift in Sources */,
 				385FA40A1CD7F2AB00CC39F9 /* LDAControlHandler.swift in Sources */,
-				3845FA431CDFCAAE00CD2643 /* LDAPageControl.swift in Sources */,
 				387EAA6F1CDAACB900678E55 /* LDAEvent.swift in Sources */,
-				38C0F0961CD81244009B08BC /* LDAStepper.swift in Sources */,
+				381D0F181D25448300CB4522 /* ControlExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
