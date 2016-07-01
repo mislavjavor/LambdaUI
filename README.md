@@ -4,9 +4,6 @@
 ![Logo](http://i.imgur.com/90cVzLB.png)
 
 [![Version](https://img.shields.io/cocoapods/v/LambdaUI.svg?style=flat)](http://cocoapods.org/pods/LambdaUI)
-## Note
-
-The project is still under construction - the final product should include stuff like TableView, CollectionView, ViewControllers etc... or maybe not, I'm still considering some stuff. Anyway, think of this as the showcase, and expect more to come
 
 ## Requirements
 
@@ -26,19 +23,17 @@ pod "LambdaUI"
 
 ## What is LambdaUI
 
-LambdaUI is an lambda driven event handling framework for Swift. (Obj-C support coming soon!)
-It dramatically reduces the effort needed when assiging events to UI elements in Swift
+LambdaUI is an lambda driven event handling framework for Swift. It dramatically reduces the effort needed when assiging events to UI elements in Swift. It also features easy and intuitive GCD support.
 
 ## Why do it this way
 
-In my personal opinion, the event system in iOS/CocoaTouch is severely broken. It leads to unreadable code and creates clutter. The long term goal of this library is to cover all the events in the CocoaTouch framework as lambda functions
+In my personal opinion, the event system in iOS/CocoaTouch is severely broken. It leads to unreadable code and creates clutter. The long term goal of this library is to cover all the events in the CocoaTouch framework as lambda functions. 
+
+Having badly designed code foces you to focus on the syntax insted of thinking about the algoritm and the implementation
 
 ### Setup
 
-In order for your component to be able to use the `LambdaUI` framework either:
-
-1. Go to the storyboard and change the `class` of the view with the equivalent `LambdaUI` view. E.g. change the `UIButton` class to `LDAButton`. This pattern is respected everywhere, so `UIStepper` becomes `LDAStepper` and `UISegmentedControl` becomes `LDASegmentedControl` etc...
-2. Initialize your element as the `LambdaUI` equivalent. For example `let button = LDAButton(frame: CGRect(...))`
+Once you've added the `LambdaUI` framework to you project,a new `events` property will be available on all instances of `UIControl` objects (e.g. `UIButton`, `UIStepper`, `UISlider`, etc...). This property contains all of the supported events for a given `UIControl`
 
 ### 1. Easy and intuitive events in CocoaTouch
 Adding targets and `#selector(...)` arguments is cumbersome and stupid. Dragging outlets is even worse - you must look at the storyboard to see what is related to what and no functionallity is glanceable. A modern framework should have a better way of handling these issues.
@@ -47,7 +42,7 @@ That's where LambdaUI comes into play
 
 Add events simply by calling the `+=` operator on the `<event name>` property of the  `events` propery of you `view`
 ```swift
-let button = LDAButton(frame : CGRect(...))
+let button = UIButton(frame : CGRect(...))
 button.events.touchUpInside += { button, event in
     // Handle event here
 }
@@ -57,7 +52,7 @@ button.events.touchUpInside += { button, event in
 There are situations when you need to add multiple events to a single `view`. Current `CocoaTouch` behaves terribly in this regard also. LambdaUI handles this with ease
 
 ```swift
-@IBOutlet weak var button : LDAButton!
+@IBOutlet weak var button : UIButton!
 ...
 ...
 ... viewDidLoad ...{
@@ -75,7 +70,7 @@ There are situations when you need to add multiple events to a single `view`. Cu
 Event management has never been easier. Add events with the `+=` operator which returns the unique identifier of each event. Then when you want, delete the event with the `-=` operator, simply by calling `<view>.events.<event name> -= <event identifier>` . This gives you expressivenes and freedom to do conditional event assignement and removal, recursive event creation, etc...
 
 ```swift
-let stepper = LDAStepper(...)
+let stepper = UIStepper(...)
 
 let eventOneIdentifier = stepper.events.valueChanged += { _, event in 
     // Do first event
@@ -94,7 +89,7 @@ Async events support all of the features (remove/add/identifiers/management) tha
 
 LambdaUI makes adding async events extremely easy
 ```swift
-@IBOutlet weak var slider : LDASlider!
+@IBOutlet weak var slider : UISlider!
 ...
 ...
 ...viewDidLoad...{
