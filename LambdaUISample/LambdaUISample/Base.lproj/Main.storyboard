@@ -20,9 +20,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH8-6C-B3e">
                                 <rect key="frame" x="20" y="20" width="102" height="30"/>
                                 <state key="normal" title="Regular button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="viewIdentifier" value="regularButton"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H06-Ej-vD5">
                                 <rect key="frame" x="486" y="28" width="94" height="29"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="viewIdentifier" value="someThing"/>
+                                </userDefinedRuntimeAttributes>
                             </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -34,8 +40,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="regularButton" destination="MH8-6C-B3e" id="SKa-z2-1om"/>
-                        <outlet property="regularStepper" destination="H06-Ej-vD5" id="J60-rv-50k"/>
+                        <outlet property="stepper" destination="H06-Ej-vD5" id="31d-sq-dES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

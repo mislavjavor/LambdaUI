@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		381D0F181D25448300CB4522 /* ControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D0F171D25448300CB4522 /* ControlExtensions.swift */; };
+		381D0F1A1D25634800CB4522 /* ExtensionHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D0F191D25634800CB4522 /* ExtensionHelperFunctions.swift */; };
 		385FA3DD1CD7E63D00CC39F9 /* LambdaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 385FA3DC1CD7E63D00CC39F9 /* LambdaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		385FA4051CD7E7D500CC39F9 /* LDAUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4041CD7E7D500CC39F9 /* LDAUtilities.swift */; };
 		385FA40A1CD7F2AB00CC39F9 /* LDAControlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385FA4091CD7F2AB00CC39F9 /* LDAControlHandler.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		381D0F171D25448300CB4522 /* ControlExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlExtensions.swift; sourceTree = "<group>"; };
+		381D0F191D25634800CB4522 /* ExtensionHelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionHelperFunctions.swift; sourceTree = "<group>"; };
 		385FA3D91CD7E63D00CC39F9 /* LambdaUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LambdaUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		385FA3DC1CD7E63D00CC39F9 /* LambdaUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LambdaUI.h; sourceTree = "<group>"; };
 		385FA3DE1CD7E63D00CC39F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				387EAA6E1CDAACB900678E55 /* LDAEvent.swift */,
 				385FA4041CD7E7D500CC39F9 /* LDAUtilities.swift */,
 				381D0F171D25448300CB4522 /* ControlExtensions.swift */,
+				381D0F191D25634800CB4522 /* ExtensionHelperFunctions.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				385FA40A1CD7F2AB00CC39F9 /* LDAControlHandler.swift in Sources */,
 				387EAA6F1CDAACB900678E55 /* LDAEvent.swift in Sources */,
 				381D0F181D25448300CB4522 /* ControlExtensions.swift in Sources */,
+				381D0F1A1D25634800CB4522 /* ExtensionHelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

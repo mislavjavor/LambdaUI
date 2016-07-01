@@ -11,34 +11,15 @@ import LambdaUI
 
 class ViewController: UIViewController {
 	
-	@IBOutlet weak var regularButton: UIButton!
-	@IBOutlet weak var regularStepper: UIStepper!
+	@IBOutlet weak var stepper: UIStepper!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		regularButton.events.touchUpInside += { _ in
-			print("did it")
-		}
+		var counter = 1
 		
-		regularButton.events.touchUpInside += { _ in
-			print("did it again")
-		}
-		
-		regularButton.events.touchUpInside += async { _ in
-			for _ in 0..<100000 {
-				print("first event")
-			}
-		}
-		
-		regularButton.events.touchUpInside += async(queue: DispatchQueue.BackgroundQueue) { stuff in
-			for _ in 0..<100000 {
-				print("background event")
-			}
-		}
-		
-		regularStepper.events.valueChanged += { _ in
-			print(self.regularStepper.value)
+		stepper.events.valueChanged += { _ in
+			print(self.stepper.value)
 		}
 	}
 }
