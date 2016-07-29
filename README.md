@@ -23,20 +23,19 @@ pod "LambdaUI"
 
 ## What is LambdaUI
 
-LambdaUI is an lambda driven event handling framework for Swift. It dramatically reduces the effort needed when assiging events to UI elements in Swift. It also features easy and intuitive GCD support.
+LambdaUI is a closure driven event handling framework for Swift. It dramatically reduces the effort needed when assiging events to UI elements in Swift. It also features easy and intuitive GCD support.
 
 ## Why do it this way
 
-In my personal opinion, the event system in iOS/CocoaTouch is severely broken. It leads to unreadable code and creates clutter. The long term goal of this library is to cover all the events in the CocoaTouch framework as lambda functions. 
+In my personal opinion, the event system in iOS/CocoaTouch is somewhat broken. It sometimes leads to unreadable code and creates clutter. The long term goal of this library is to cover all the events in the CocoaTouch framework as closures.
 
-Having badly designed code foces you to focus on the syntax insted of thinking about the algoritm and the implementation
-
+This library attempts to shift the developers focus from the syntax and onto the algorithm
 ### Setup
 
 Once you've added the `LambdaUI` framework to you project,a new `events` property will be available on all instances of `UIControl` objects (e.g. `UIButton`, `UIStepper`, `UISlider`, etc...). This property contains all of the supported events for a given `UIControl`
 
 ### 1. Easy and intuitive events in CocoaTouch
-Adding targets and `#selector(...)` arguments is cumbersome and stupid. Dragging outlets is even worse - you must look at the storyboard to see what is related to what and no functionallity is glanceable. A modern framework should have a better way of handling these issues.
+Adding targets and `#selector(...)` arguments is oftentimes cumbersome. Dragging outlets is even worse - you must look at the storyboard to see what is related to what and functionallity isn't glanceable. The goal of this framework is to add some syntactic sugar on top of UIKit
 
 That's where LambdaUI comes into play
 
@@ -49,7 +48,7 @@ button.events.touchUpInside += { button, event in
 ```
 
 ### 2. Easily handle multiple events
-There are situations when you need to add multiple events to a single `view`. Current `CocoaTouch` behaves terribly in this regard also. LambdaUI handles this with ease
+There are situations when you need to add multiple events to a single `view`. LambdaUI handles this with ease
 
 ```swift
 @IBOutlet weak var button : UIButton!
@@ -83,7 +82,7 @@ let eventTwoIdentifier = stepper.events.touchUpInside += { stepper, event in
 ```
 
 ### 4. Paineless Asynchronous event management using GCD
-Asynchronous event management is a pain the ass with CocoaTouch. You need to define a function which then takes another function (or a block of code) that is executed on a queue that you need. Also, the queue names are unnecessarily ugly (`dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)` + putting that into `dispatch_async(...)` - come ON, give me a break)
+Asynchronous event management can be tiring with CocoaTouch. You need to define a function which then takes another function (or a block of code) that is executed on a queue that you need. Also, the queue names are inherited from C and don't fit the Swift syntax nicely (`dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)` + putting that into `dispatch_async(...)` - it gets really long really fast)
 
 Async events support all of the features (remove/add/identifiers/management) that the "regular" events support
 
