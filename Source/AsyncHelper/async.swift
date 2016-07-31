@@ -10,7 +10,7 @@ import Foundation
 
 public struct async{
     
-    public typealias asyncFuncSignature = (UIEvent) -> Void
+    public typealias asyncFuncSignature = (EventWrapper) -> Void
     
     var queue : dispatch_queue_t
     var eventFunction : asyncFuncSignature

@@ -11,8 +11,6 @@ import UIKit
 
 public class ControlHandler {
     
-    public typealias EventHandler = (UIEvent) -> Void
-    
     public var touchUpInside : [Event] = [Event]()
     public var touchDown : [Event] = [Event]()
     public var touchDragInside : [Event] = [Event]()
@@ -33,6 +31,7 @@ public class ControlHandler {
     public var primaryActionTriggered : [Event] = [Event]()
     
     
+    
 
     private let currentControl : UIControl
     
@@ -40,6 +39,7 @@ public class ControlHandler {
         currentControl = control
         generateLambdaHandlers()
     }
+    
     
     
     private func generateLambdaHandlers() {
@@ -69,66 +69,68 @@ public class ControlHandler {
         
     }
     
+    
     @objc internal func touchCancelHandler(control: UIControl, event: UIEvent) {
-        let control = control
         for handler in touchCancel {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchCancel))
         }
     }
     
     @objc internal func primaryActionTriggeredHandler(control: UIControl, event: UIEvent) {
         
         for handler in primaryActionTriggered {
-            handler.performEvent(event)
+            if #available(iOS 9.0, *) {
+                handler.performEvent(EventWrapper(event: event, type: .PrimaryActionTriggered))
+            }
         }
     }
     
     @objc internal func editingDidEndOnExitHandler(control: UIControl, event: UIEvent) {
         
         for handler in editingDidEndOnExit {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .EditingDidEndOnExit))
         }
     }
     
     @objc internal func editingDidBeginHandler(control: UIControl, event: UIEvent) {
         
         for handler in editingDidBegin {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .EditingDidBegin ))
         }
     }
     
     @objc internal func editingDidEndHandler(control: UIControl, event: UIEvent) {
         
         for handler in editingDidEnd {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .EditingDidEnd))
         }
     }
     
     @objc internal func allTouchEventsHandler(control : UIControl, event: UIEvent) {
         
         for handler in allTouchEvents {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .AllTouchEvents))
         }
     }
     
     @objc internal func allEventsHandler(control: UIControl, event: UIEvent) {
         
         for handler in allEvents {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .AllEvents))
         }
     }
     
     @objc internal func allEditingEvents(control: UIControl, event: UIEvent) {
         
         for handler in allEditingEvents {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .AllEditingEvents))
         }
     }
     
     @objc internal func editingChanged(control: UIControl, event: UIEvent) {
         
         for handler in editingChanged {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .EditingChanged))
         }
     }
 
@@ -136,56 +138,56 @@ public class ControlHandler {
     @objc internal func touchUpInsideHandler(control: UIControl, event: UIEvent) {
         
         for handler in touchUpInside {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchUpInside))
         }
     }
     
     @objc internal func touchDownHandler(control: UIControl, event: UIEvent) {
         
         for handler in touchDown {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchDown))
         }
     }
     
     @objc internal func touchDragInsideHandler(control: UIControl, event: UIEvent) {
         
         for handler in touchDragInside {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchDragInside))
         }
     }
     
     @objc internal func touchDragOutsideHandler(control: UIControl, event: UIEvent) {
         
         for handler in touchDragOutside {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchDragOutside))
         }
     }
     
     @objc internal func touchDragEnterHandler(control: UIControl, event: UIEvent) {
         
         for handler in touchDragEnter {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchDragEnter))
         }
     }
     
     @objc internal func touchDragExitHandler(control: UIControl, event: UIEvent) {
         
         for handler in touchDragExit {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchDragExit))
         }
     }
     
     @objc internal func touchUpOutsideHandler(control: UIControl, event: UIEvent) {
         
         for handler in touchUpOutside {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .TouchUpOutside))
         }
     }
     
     @objc internal func valueChangedHandler(control: UIControl, event: UIEvent) {
         
         for handler in valueChanged {
-            handler.performEvent(event)
+            handler.performEvent(EventWrapper(event: event, type: .ValueChanged))
         }
     }
     

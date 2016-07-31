@@ -21,6 +21,36 @@
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="csV-FJ-g4W">
+                                <rect key="frame" x="253" y="323" width="94" height="29"/>
+                            </stepper>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rsw-S9-5pT">
+                                <rect key="frame" x="241" y="247" width="118" height="31"/>
+                            </slider>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lKe-a7-v6N">
+                                <rect key="frame" x="0.0" y="28" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="491683435.73966998">
+                                    <!--2016-07-31 18:43:55 +0000-->
+                                </date>
+                            </datePicker>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="vkK-66-Alj">
+                                <rect key="frame" x="281" y="360" width="39" height="37"/>
+                            </pageControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AYJ-Fc-1Di">
+                                <rect key="frame" x="236" y="405" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMV-M3-3np">
+                                <rect key="frame" x="272" y="447" width="51" height="31"/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYH-SH-kEG">
+                                <rect key="frame" x="248" y="486" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -30,6 +60,13 @@
                     </view>
                     <connections>
                         <outlet property="testButton" destination="ND4-bL-9Ll" id="KdO-W6-bbc"/>
+                        <outlet property="testDatePicker" destination="lKe-a7-v6N" id="Xff-6x-sP0"/>
+                        <outlet property="testPageControl" destination="vkK-66-Alj" id="A1V-tY-RyG"/>
+                        <outlet property="testSegmentedControl" destination="AYJ-Fc-1Di" id="Ns6-vx-sWp"/>
+                        <outlet property="testSlider" destination="Rsw-S9-5pT" id="DPq-mS-GtS"/>
+                        <outlet property="testStepper" destination="csV-FJ-g4W" id="9Qe-fT-avI"/>
+                        <outlet property="testSwitch" destination="bMV-M3-3np" id="6BE-be-Yip"/>
+                        <outlet property="testTextField" destination="zYH-SH-kEG" id="0f7-Ow-cj3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

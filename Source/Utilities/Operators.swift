@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func += (inout left: [Event], right: (UIEvent) -> Void) -> String {
+public func += (inout left: [Event], right: (EventWrapper) -> Void) -> String {
 	let newEvent = Event(eventFunction: right)
 	left.append(newEvent)
 	return newEvent.uuid
