@@ -5,6 +5,7 @@
 
 [![Version](https://img.shields.io/cocoapods/v/LambdaUI.svg?style=flat)](http://cocoapods.org/pods/LambdaUI)
 [![Build Status](https://travis-ci.org/mislavjavor/LambdaUI.svg?branch=master)](https://travis-ci.org/mislavjavor/LambdaUI)
+[![Coverage Status](https://coveralls.io/repos/github/mislavjavor/LambdaUI/badge.svg?branch=add-control-sender)](https://coveralls.io/github/mislavjavor/LambdaUI?branch=add-control-sender)
 
 ## Requirements
 
