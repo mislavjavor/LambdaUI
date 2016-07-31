@@ -88,7 +88,7 @@ class EventExecutionTests: XCTestCase {
         
     }
     
-    func test_SingleAsyncEvent() {
+    func test_AsyncEventsExecution() {
         
         var passedCounter = 0
         let expectation = expectationWithDescription("Main queue event triggered")
@@ -115,7 +115,12 @@ class EventExecutionTests: XCTestCase {
         sleep(1)
         
         XCTAssertTrue(passedCounter == 2)
-        waitForExpectationsWithTimeout(1, handler: nil)
+        waitForExpectationsWithTimeout(5, handler: nil)
+    }
+    
+    func test_RemoveAsyncEvent() {
+        
+        
     }
     
 }

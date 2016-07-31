@@ -28,9 +28,16 @@ public struct Event {
     
     
     private func performAsync(event: UIEvent) {
-        dispatch_async(asyncQueue!) {
-            self.eventFunction(event)
+        if let queue = asyncQueue {
+            dispatch_async(queue) {
+                self.eventFunction(event)
+            }
+        } else {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.eventFunction(event)
+            }
         }
+        
     }
     
     private func performSync(event: UIEvent) {
