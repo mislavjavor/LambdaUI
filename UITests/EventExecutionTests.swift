@@ -142,4 +142,40 @@ class EventExecutionTests: XCTestCase {
         
     }
     
+    func test_removeFromEmpty() {
+        
+        vc.testButton.events.touchUpInside -= NSUUID().UUIDString
+        
+        XCTAssertTrue(true)
+        
+    }
+    
+    func test_RemoveSameIdentifierMultipleTimes() {
+        
+        let notTriggeredExpectation = expectationWithDescription("Event not triggered")
+        let triggeredExpectation = expectationWithDescription("Control event triggered")
+        
+        vc.testButton.events.touchUpInside += { _ in
+            XCTAssertTrue(true)
+            triggeredExpectation.fulfill()
+        }
+        
+        let identifier = vc.testButton.events.touchUpInside += { _ in
+            XCTAssertTrue(false)
+        }
+        
+        vc.testButton.events.touchUpInside -= identifier
+        vc.testButton.events.touchUpInside -= identifier
+        
+        
+        vc.testButton.sendActionsForControlEvents(.TouchUpInside)
+        
+        dispatch_after(1, dispatch_get_main_queue()) {
+            notTriggeredExpectation.fulfill()
+        }
+        
+        
+        waitForExpectationsWithTimeout(5, handler: nil)
+        
+    }
 }
