@@ -2,10 +2,10 @@
 
 Pod::Spec.new do |s|
   s.name         = "LambdaUI"
-  s.version      = "1.0.0"
-  s.summary      = "Lambda driven event handling framework with easy event management and intuitive GCD async support "
+  s.version      = "1.1.0"
+  s.summary      = "Closure driven event handling framework with easy event management and intuitive GCD async support "
   s.description  = <<-DESC
-Event handling with lambda functioncs and Grand Central Dispatch ( GCD ) asynchronous ( async ) support
+Event handling with closures and Grand Central Dispatch ( GCD ) asynchronous ( async ) support
                    DESC
   s.homepage     = "https://github.com/mislavjavor/LambdaUI"
   s.license      =  "MIT"
