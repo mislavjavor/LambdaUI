@@ -1,7 +1,7 @@
 # LambdaUI
 
 
-![Logo](http://i.imgur.com/90cVzLB.png)
+![Logo](http://i.imgur.com/9AUTCzN.png)
 
 [![Version](https://img.shields.io/cocoapods/v/LambdaUI.svg?style=flat)](http://cocoapods.org/pods/LambdaUI)
 
