@@ -138,13 +138,13 @@
 		385FA3CF1CD7E63D00CC39F9 = {
 			isa = PBXGroup;
 			children = (
-				385FA3DB1CD7E63D00CC39F9 /* Source */,
+				40FEA14F1778912FCA1D84C2 /* Frameworks */,
+				05EF73FAA52249DACC98300F /* Pods */,
+				385FA3DA1CD7E63D00CC39F9 /* Products */,
 				38A94B5D1D4D64F700C2DCF5 /* Sample */,
+				385FA3DB1CD7E63D00CC39F9 /* Source */,
 				38A94BC31D4D722400C2DCF5 /* TestApp */,
 				38A94BDC1D4D751600C2DCF5 /* UITests */,
-				385FA3DA1CD7E63D00CC39F9 /* Products */,
-				05EF73FAA52249DACC98300F /* Pods */,
-				40FEA14F1778912FCA1D84C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,23 +165,22 @@
 				387EAA741CDD2BC900678E55 /* AsyncHelper */,
 				387EAA731CDD1EC300678E55 /* Handlers */,
 				387EAA721CDD1EAF00678E55 /* Utilities */,
-				385FA3DC1CD7E63D00CC39F9 /* LambdaUI.h */,
 				385FA3DE1CD7E63D00CC39F9 /* Info.plist */,
+				385FA3DC1CD7E63D00CC39F9 /* LambdaUI.h */,
 			);
-			name = Source;
-			path = LambdaUI;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		387EAA721CDD1EAF00678E55 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				387EAA701CDD1E2B00678E55 /* Operators.swift */,
-				387EAA6E1CDAACB900678E55 /* Event.swift */,
-				385FA4041CD7E7D500CC39F9 /* Utilities.swift */,
 				381D0F171D25448300CB4522 /* ControlExtensions.swift */,
+				387EAA6E1CDAACB900678E55 /* Event.swift */,
 				381D0F191D25634800CB4522 /* ExtensionHelperFunctions.swift */,
+				387EAA701CDD1E2B00678E55 /* Operators.swift */,
+				385FA4041CD7E7D500CC39F9 /* Utilities.swift */,
 			);
-			name = Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		387EAA731CDD1EC300678E55 /* Handlers */ = {
@@ -189,7 +188,7 @@
 			children = (
 				385FA4091CD7F2AB00CC39F9 /* ControlHandler.swift */,
 			);
-			name = Handlers;
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		387EAA741CDD2BC900678E55 /* AsyncHelper */ = {
@@ -197,18 +196,18 @@
 			children = (
 				387EAA751CDD2BD600678E55 /* async.swift */,
 			);
-			name = AsyncHelper;
+			path = AsyncHelper;
 			sourceTree = "<group>";
 		};
 		38A94B5D1D4D64F700C2DCF5 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
 				38A94B5E1D4D64F700C2DCF5 /* AppDelegate.swift */,
-				38A94B601D4D64F700C2DCF5 /* ViewController.swift */,
-				38A94B621D4D64F700C2DCF5 /* Main.storyboard */,
 				38A94B651D4D64F700C2DCF5 /* Assets.xcassets */,
-				38A94B671D4D64F700C2DCF5 /* LaunchScreen.storyboard */,
 				38A94B6A1D4D64F700C2DCF5 /* Info.plist */,
+				38A94B671D4D64F700C2DCF5 /* LaunchScreen.storyboard */,
+				38A94B621D4D64F700C2DCF5 /* Main.storyboard */,
+				38A94B601D4D64F700C2DCF5 /* ViewController.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -217,11 +216,11 @@
 			isa = PBXGroup;
 			children = (
 				38A94BC41D4D722400C2DCF5 /* AppDelegate.swift */,
-				38A94BC61D4D722400C2DCF5 /* TestViewController.swift */,
-				38A94BC81D4D722400C2DCF5 /* Main.storyboard */,
 				38A94BCB1D4D722400C2DCF5 /* Assets.xcassets */,
-				38A94BCD1D4D722400C2DCF5 /* LaunchScreen.storyboard */,
 				38A94BD01D4D722400C2DCF5 /* Info.plist */,
+				38A94BCD1D4D722400C2DCF5 /* LaunchScreen.storyboard */,
+				38A94BC81D4D722400C2DCF5 /* Main.storyboard */,
+				38A94BC61D4D722400C2DCF5 /* TestViewController.swift */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -559,6 +558,7 @@
 				38A94B631D4D64F700C2DCF5 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		38A94B671D4D64F700C2DCF5 /* LaunchScreen.storyboard */ = {
@@ -567,6 +567,7 @@
 				38A94B681D4D64F700C2DCF5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		38A94BC81D4D722400C2DCF5 /* Main.storyboard */ = {
@@ -575,6 +576,7 @@
 				38A94BC91D4D722400C2DCF5 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		38A94BCD1D4D722400C2DCF5 /* LaunchScreen.storyboard */ = {
@@ -583,6 +585,7 @@
 				38A94BCE1D4D722400C2DCF5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -688,7 +691,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LambdaUI/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mislavjavor.LambdaUI;
@@ -707,7 +710,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LambdaUI/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mislavjavor.LambdaUI;
@@ -823,6 +826,7 @@
 				38A94BD31D4D722400C2DCF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		38A94BE31D4D751700C2DCF5 /* Build configuration list for PBXNativeTarget "UITests" */ = {
 			isa = XCConfigurationList;
@@ -831,6 +835,7 @@
 				38A94BE51D4D751700C2DCF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
