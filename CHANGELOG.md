@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.0.x versions
+## 1.x.x versions
 
 ### 1.1.0
 
