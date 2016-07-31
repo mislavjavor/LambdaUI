@@ -1,3 +1,5 @@
 language: objective-c
 osx_image: xcode7.3
+before_install: gem install cocoapods xcpretty obcd slather -N
+after_success: slather
 script: set -o pipefail && xcodebuild test -workspace LambdaUI.xcworkspace -scheme LambdaUI -sdk iphonesimulator9.3 | xcpretty

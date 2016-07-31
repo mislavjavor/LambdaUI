@@ -11,7 +11,7 @@ import Foundation
 
 public struct Event {
 
-    public typealias EventFunction = (UIEvent) -> Void
+    public typealias EventFunction = (EventWrapper) -> Void
 
     
     private var shouldPerformAsync : Bool = false
@@ -27,7 +27,7 @@ public struct Event {
     }
     
     
-    private func performAsync(event: UIEvent) {
+    private func performAsync(event: EventWrapper) {
         if let queue = asyncQueue {
             dispatch_async(queue) {
                 self.eventFunction(event)
@@ -40,11 +40,11 @@ public struct Event {
         
     }
     
-    private func performSync(event: UIEvent) {
+    private func performSync(event: EventWrapper) {
         eventFunction(event)
     }
     
-    public func performEvent(event: UIEvent) {
+    public func performEvent(event: EventWrapper) {
         if shouldPerformAsync {
             performAsync(event)
         } else {
