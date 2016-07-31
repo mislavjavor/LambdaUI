@@ -1,4 +1,6 @@
 ci_service: travis_ci
 coverage_service: coveralls
 xcodeproj: LambdaUI.xcodeproj
+scheme: LambdaUI
 source_directory: Source
+workspace: LambdaUI.xcworkspace
