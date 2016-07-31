@@ -26,7 +26,7 @@
 		38A94BCA1D4D722400C2DCF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38A94BC81D4D722400C2DCF5 /* Main.storyboard */; };
 		38A94BCC1D4D722400C2DCF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38A94BCB1D4D722400C2DCF5 /* Assets.xcassets */; };
 		38A94BCF1D4D722400C2DCF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38A94BCD1D4D722400C2DCF5 /* LaunchScreen.storyboard */; };
-		38A94BDE1D4D751700C2DCF5 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A94BDD1D4D751700C2DCF5 /* UITests.swift */; };
+		38A94BDE1D4D751700C2DCF5 /* EventeExecutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A94BDD1D4D751700C2DCF5 /* EventeExecutionTests.swift */; };
 		38A94BE01D4D751700C2DCF5 /* LambdaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385FA3D91CD7E63D00CC39F9 /* LambdaUI.framework */; };
 		CBBCE2D9CECBFEBDCFE08F40 /* Pods_LambdaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566FCA6D78884BF490E5331B /* Pods_LambdaUI.framework */; };
 /* End PBXBuildFile section */
@@ -74,7 +74,7 @@
 		38A94BCE1D4D722400C2DCF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38A94BD01D4D722400C2DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38A94BDB1D4D751600C2DCF5 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		38A94BDD1D4D751700C2DCF5 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+		38A94BDD1D4D751700C2DCF5 /* EventeExecutionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventeExecutionTests.swift; sourceTree = "<group>"; };
 		38A94BDF1D4D751700C2DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AFE57A77D9F9169D573A919 /* Pods-LambdaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LambdaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LambdaUITests/Pods-LambdaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		561BFCC317F8242A7D8FA293 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +229,7 @@
 		38A94BDC1D4D751600C2DCF5 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				38A94BDD1D4D751700C2DCF5 /* UITests.swift */,
+				38A94BDD1D4D751700C2DCF5 /* EventeExecutionTests.swift */,
 				38A94BDF1D4D751700C2DCF5 /* Info.plist */,
 			);
 			path = UITests;
@@ -533,7 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38A94BDE1D4D751700C2DCF5 /* UITests.swift in Sources */,
+				38A94BDE1D4D751700C2DCF5 /* EventeExecutionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

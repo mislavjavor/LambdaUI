@@ -22,11 +22,6 @@ class EventExecutionTests: XCTestCase {
         vc.viewDidLoad()
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func test_SingleSyncEvent() {
         
         let expectation = expectationWithDescription("Event has been triggered")
@@ -120,6 +115,30 @@ class EventExecutionTests: XCTestCase {
     
     func test_RemoveAsyncEvent() {
         
+        let notTriggeredExpectation = expectationWithDescription("Event not triggered")
+        let triggeredExpectation = expectationWithDescription("Event triggered")
+        
+        let identifier = vc.testButton.events.touchUpInside +=  async(queue: .UserInteractiveQueue){ _ in
+            //Make sure first event doesn't trigger
+            XCTAssertTrue(false)
+        }
+        
+        //Second event not removed and should trigger
+        vc.testButton.events.touchUpInside += async(queue: .BackgroundQueue){ _ in
+            XCTAssertTrue(true)
+            triggeredExpectation.fulfill()
+        }
+        
+        //Remove first event
+        vc.testButton.events.touchUpInside -= identifier
+        
+        dispatch_after(1, dispatch_get_main_queue(), {
+            notTriggeredExpectation.fulfill()
+        })
+        
+        vc.testButton.sendActionsForControlEvents(.TouchUpInside)
+        
+        waitForExpectationsWithTimeout(1, handler: nil)
         
     }
     
