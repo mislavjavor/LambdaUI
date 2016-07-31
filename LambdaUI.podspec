@@ -12,5 +12,5 @@ Event handling with closures and Grand Central Dispatch ( GCD ) asynchronous ( a
   s.author             = { "Mislav Javor" => "mislav.javor@outlook.com" }
   s.platform = :ios, "8.0"
   s.source       = { :git => "https://github.com/mislavjavor/LambdaUI.git", :tag => "#{s.version}" }
-  s.source_files  = "LambdaUI/**/*.{swift}"
+  s.source_files  = "Source/**/*.swift"
 end
