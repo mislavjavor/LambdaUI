@@ -1,9 +1,10 @@
 # LambdaUI
 
 
-![Logo](http://i.imgur.com/90cVzLB.png)
+![Logo](https://i.imgur.com/4Iubz3e.png)
 
 [![Version](https://img.shields.io/cocoapods/v/LambdaUI.svg?style=flat)](http://cocoapods.org/pods/LambdaUI)
+[![Build Status](https://travis-ci.org/mislavjavor/LambdaUI.svg?branch=master)](https://travis-ci.org/mislavjavor/LambdaUI)
 
 ## Requirements
 
@@ -26,98 +27,62 @@ pod "LambdaUI"
 
 LambdaUI is an closure driven event handling framework for Swift. It reduces the effort needed when assigning events to UI elements in Swift. It also features easy and intuitive GCD support.
 
-## Why do it this way?
-
-
-In my personal opinion, the event system in iOS/CocoaTouch is somewhat broken. It leads to unreadable code and creates clutter. The long term goal of this library is to cover all the events in the CocoaTouch framework as lambda functions.
-
-Having badly designed code forces you to focus on the syntax instead of thinking about the algorithm and implementation.
-
-This library attempts to shift the developers focus from the syntax and onto the algorithm
 ### Setup
 
 Once you've added the `LambdaUI` framework to your project, a new `events` property will be available on all instances of `UIControl` objects (for example, `UIButton`, `UIStepper`, `UISlider`, etc.). This property contains all of the supported events for a given `UIControl`
 
-### 1. Easy and intuitive events in CocoaTouch
+## Using LambdaUI
 
-Adding targets and `#selector(...)` arguments is sometimes cumbersome. Dragging outlets can be worse; you have to look at the storyboard to see what's related to what and no functionality can be seen at a glance.
+### Add events to `UIControl` instances
 
-That's where LambdaUI comes into play!
-
-Add events simply by calling the `+=` operator on the `<event name>` property of the  `events` property of your `view`
 ```swift
-let button = UIButton(frame : CGRect(...))
-button.events.touchUpInside += { button, event in
-    // Handle event here
+let button = UIButton()
+button.events.touchUpInside += { _ in
+  print("Touched the button")
 }
 ```
 
-### 2. Easily handle multiple events
+### Remove added events easily
 
-There are situations when you need to add multiple events to a single `view`. LambdaUI handles this with ease.
+```swift
+let stepper = UIStepper()
+let eventIdentidier = stepper.events.valueChanged += { _ in
+  print("Stepper changed value")
+}
 
+if shouldDisableStepperEvents {
+  stepper.events.valueChanged -= eventIdentidier
+}
+```
+
+### Easily add async events
+
+```swift
+let slider = UISlider()
+slider.events.valueChanged += async {
+  print("async event")
+}
+
+slider.events.valueChanged += async(queue: .UserInteractiveQueue) { _ in
+  print("async event on user interactive queue")
+}
+```
+
+### Mix and match/add multiple events
 
 ```swift
 @IBOutlet weak var button : UIButton!
-...
-...
-... viewDidLoad ...{
-    button.events.touchUpInside += { _ in
-        // Event no. 1
-    }
 
-    button.events.touchUpInside += { _ in
-        // Event n0. 2 -> triggered synchronously after the first event is complete
-    }
-}
-```
+override func viewDidLoad() {
+  super.viewDidLoad()
+  let firstEventIdentifier = button.events.touchUpInside += { _ in
+    print("Do first event")
+  }
 
-### 3. Manage (add/remove) events easily
-Event management has never been easier. Add events with the `+=` operator which returns the unique identifier of each event. Then when you want, delete the event with the `-=` operator, simply by calling `<view>.events.<event name> -= <event identifier>` . This gives you expressiveness and freedom to do conditional event assignment and removal, recursive event creation, etc.
-
-```swift
-let stepper = UIStepper(...)
-
-let eventOneIdentifier = stepper.events.valueChanged += { _, event in
-    // Do first event
-}
-
-let eventTwoIdentifier = stepper.events.touchUpInside += { stepper, event in
-    // Do second event
-    stepper.events.valueChanged -= eventOneIdentifier // Remove the first event -> when value changes, it wont be fired again
-}
-```
-
-### 4. Paineless Asynchronous event management using GCD
-Asynchronous event management can be tiring with CocoaTouch. You need to define a function which then takes another function (or a block of code) that is executed on a queue that you need. Also, the queue names are inherited from C and don't fit the Swift syntax nicely (`dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)` + putting that into `dispatch_async(...)` - it gets really long really fast)
-
-
-Async events support all of the features (remove/add/identifiers/management) that the "regular" events support
-
-LambdaUI makes adding async events extremely easy
-```swift
-@IBOutlet weak var slider : UISlider!
-...
-...
-...viewDidLoad...{
-    // Add an async event (defaults to Main Queue)
-    slider.events.valueChanged += async { _ in
-        // Do stuff async
-    }
-    let identifier = slider.events.valueChanged += async { _ in
-        // These two events will be done concurrently
-    }
-
-    // Add to a gloabl queue with helper enum
-    slider.events.valueChanged += async(queue: .UserInteractiveQueue) { _ in
-        // Do stuff on user interactive queue
-    }
-
-    // Add to any dispatch_queue_t
-    let queue = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
-    slider.events.valueChanged += async(queue) { _ in
-        slider.events.valueChanged -= identifier // Remove the async event normally
-    }
+  button.events.touchUpInside += async(queue: .BackgroundQueue) { _ in
+    //Disable first event once the second event has been triggered
+    button.events.touchUpInside -= firstEventIdentifier
+  }
 }
 ```
 

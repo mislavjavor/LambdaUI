@@ -1,0 +1,6 @@
+framework module Pods_LambdaUI {
+  umbrella header "Pods-LambdaUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,3 @@
+language: objective-c
+osx_image: xcode7.3
+script: set -o pipefail && xcodebuild test -workspace LambdaUI.xcworkspace -scheme LambdaUI -sdk iphonesimulator9.3 | xcpretty
