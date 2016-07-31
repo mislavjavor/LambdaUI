@@ -1,7 +1,7 @@
 # LambdaUI
 
 
-![Logo](http://i.imgur.com/9AUTCzN.png)
+![Logo](https://i.imgur.com/4Iubz3e.png)
 
 [![Version](https://img.shields.io/cocoapods/v/LambdaUI.svg?style=flat)](http://cocoapods.org/pods/LambdaUI)
 [![Build Status](https://travis-ci.org/mislavjavor/LambdaUI.svg?branch=master)](https://travis-ci.org/mislavjavor/LambdaUI)
