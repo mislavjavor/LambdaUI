@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:LambdaUISample/LambdaUISample.xcodeproj">
+      location = "group:LambdaUI.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:LambdaUI/LambdaUI.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
