@@ -8,23 +8,28 @@
 
 import Foundation
 
-public func += (inout left: [Event], right: (EventWrapper) -> Void) -> String {
+public func += (left: inout [Event], right: @escaping (EventWrapper) -> Void) -> String {
 	let newEvent = Event(eventFunction: right)
 	left.append(newEvent)
 	return newEvent.uuid
 }
 
-public func -= (inout left: [Event], right: String) -> Bool {
-	for item in left.enumerate() {
+public func += (left: inout [Event], right: @escaping (EventWrapper)->Void) {
+    let newEvent = Event(eventFunction: right)
+    left.append(newEvent)
+}
+
+public func -= (left: inout [Event], right: String) -> Bool {
+	for item in left.enumerated() {
 		if item.element.uuid == right {
-			left.removeAtIndex(item.index)
+            left.remove(at: item.offset)
 			return true
 		}
 	}
 	return false
 }
 
-public func += (inout left: [Event], right: async) -> String {
+public func += (left: inout [Event], right: async) -> String {
 	let newEvent = Event(shouldAsync: true, queue: right.queue, eventFunction: right.eventFunction)
 	left.append(newEvent)
 	return newEvent.uuid

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LambdaUI
 
 class TestViewController: UIViewController {
 
@@ -20,11 +21,11 @@ class TestViewController: UIViewController {
     @IBOutlet weak var testSwitch: UISwitch!
     
     @IBOutlet weak var testTextField: UITextField!
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
     }
 
 }

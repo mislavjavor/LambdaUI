@@ -7,44 +7,44 @@
 //
 
 import Foundation
-
+import Dispatch
 
 public struct Event {
 
     public typealias EventFunction = (EventWrapper) -> Void
 
     
-    private var shouldPerformAsync : Bool = false
-    private var asyncQueue : dispatch_queue_t? = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
-    private var eventFunction : EventFunction = { _ in }
+    fileprivate var shouldPerformAsync : Bool = false
+    fileprivate var asyncQueue : Dispatch.DispatchQueue? = DispatchQueue.global(qos: DispatchQoS.userInteractive.qosClass)
+    fileprivate var eventFunction : EventFunction = { _ in }
     public var uuid : String!
     
-    init(shouldAsync: Bool = false, queue : dispatch_queue_t? = nil, eventFunction: EventFunction) {
+    init(shouldAsync: Bool = false, queue : Dispatch.DispatchQueue? = nil, eventFunction: @escaping EventFunction) {
         self.shouldPerformAsync = shouldAsync
         self.asyncQueue = queue
         self.eventFunction = eventFunction
-        self.uuid = NSUUID().UUIDString
+        self.uuid = UUID().uuidString
     }
     
     
-    private func performAsync(event: EventWrapper) {
+    fileprivate func performAsync(_ event: EventWrapper) {
         if let queue = asyncQueue {
-            dispatch_async(queue) {
+            queue.async {
                 self.eventFunction(event)
             }
         } else {
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.eventFunction(event)
             }
         }
         
     }
     
-    private func performSync(event: EventWrapper) {
+    fileprivate func performSync(_ event: EventWrapper) {
         eventFunction(event)
     }
     
-    public func performEvent(event: EventWrapper) {
+    public func performEvent(_ event: EventWrapper) {
         if shouldPerformAsync {
             performAsync(event)
         } else {

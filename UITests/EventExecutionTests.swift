@@ -14,12 +14,10 @@ class EventExecutionTests: XCTestCase {
     
     var vc: TestViewController!
     
-    let queues : Set<DispatchQueue> = [
-        .MainQueue,
-        .BackgroundQueue,
-        .UtilityQueue,
-        .UserInitiatedQueue,
-        .UserInteractiveQueue,
+    let queues = [
+        DispatchQueue.main,
+        DispatchQueue.global(qos: DispatchQoS.background.qosClass),
+        DispatchQueue.global(qos: DispatchQoS.userInteractive.qosClass)
     ]
     
     override func setUp() {
@@ -33,20 +31,20 @@ class EventExecutionTests: XCTestCase {
     
     func test_SingleSyncEvent() {
         
-        let expectation = expectationWithDescription("Event has been triggered")
+        let expectation = self.expectation(description: "Event has been triggered")
         
-        vc.testButton.events.touchUpInside += { _ in
+        _ = vc.testButton.events.touchUpInside += { _ in
             expectation.fulfill()
         }
         
-        vc.testButton.sendActionsForControlEvents(.TouchUpInside)
+        vc.testButton.sendActions(for: .touchUpInside)
         
-        waitForExpectationsWithTimeout(1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
     
     func test_MultipleSyncEvents() {
-        let firstExpectation = expectationWithDescription("First event triggered")
-        let secondExpectation = expectationWithDescription("Second event triggered")
+        let firstExpectation = expectation(description: "First event triggered")
+        let secondExpectation = expectation(description: "Second event triggered")
         
         vc.testButton.events.touchUpInside += { _ in
             XCTAssertTrue(true)
@@ -58,13 +56,13 @@ class EventExecutionTests: XCTestCase {
             secondExpectation.fulfill()
         }
         
-        vc.testButton.sendActionsForControlEvents(.TouchUpInside)
+        vc.testButton.sendActions(for: .touchUpInside)
         
-        waitForExpectationsWithTimeout(1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
     }
     
     func test_RemoveSyncEvent() {
-        let triggeredExpectation = expectationWithDescription("Event triggered")
+        let triggeredExpectation = expectation(description: "Event triggered")
         
         let identifier = vc.testButton.events.touchUpInside += { _ in
             //Make sure first event doesn't trigger
@@ -79,9 +77,9 @@ class EventExecutionTests: XCTestCase {
         //Remove first event
         vc.testButton.events.touchUpInside -= identifier
         
-        vc.testButton.sendActionsForControlEvents(.TouchUpInside)
+        vc.testButton.sendActions(for: .touchUpInside)
         
-        waitForExpectationsWithTimeout(1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
         
     }
     
@@ -89,87 +87,87 @@ class EventExecutionTests: XCTestCase {
     
     func passForTouchUpInside(withControl control : UIControl) {
         for queue in queues {
-            let asyncExpectation = expectationWithDescription("TouchUpInside triggered asynchronously on \(control)")
+            let asyncExpectation = expectation(description: "TouchUpInside triggered asynchronously on \(control)")
             control.events.touchUpInside += async(queue: queue) { event in
-                XCTAssert(event.type == .TouchUpInside)
+                XCTAssert(event.type == .touchUpInside)
                 asyncExpectation.fulfill()
             }
         }
-        let syncExpectation = expectationWithDescription("TouchUpInside triggered synchronously on \(control)")
+        let syncExpectation = expectation(description: "TouchUpInside triggered synchronously on \(control)")
         control.events.touchUpInside += { event in
-            XCTAssert(event.type == .TouchUpInside)
+            XCTAssert(event.type == .touchUpInside)
             syncExpectation.fulfill()
         }
-        control.sendActionsForControlEvents(.TouchUpInside)
-        waitForExpectationsWithTimeout(2, handler: nil)
+        control.sendActions(for: .touchUpInside)
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
     func passForTouchDown(withControl control : UIControl) {
         for queue in queues {
-            let asyncExpectation = expectationWithDescription("TouchDown triggered asynchronously on \(control)")
+            let asyncExpectation = expectation(description: "TouchDown triggered asynchronously on \(control)")
             control.events.touchDown += async(queue: queue) { event in
-                XCTAssert(event.type == .TouchDown)
+                XCTAssert(event.type == .touchDown)
                 asyncExpectation.fulfill()
             }
         }
-        let syncExpectation = expectationWithDescription("TouchDown triggered synchronously on \(control)")
+        let syncExpectation = expectation(description: "TouchDown triggered synchronously on \(control)")
         control.events.touchDown += { event in
-            XCTAssert(event.type == .TouchDown)
+            XCTAssert(event.type == .touchDown)
             syncExpectation.fulfill()
         }
-        control.sendActionsForControlEvents(.TouchDown)
-        waitForExpectationsWithTimeout(2, handler: nil)
+        control.sendActions(for: .touchDown)
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
     func passForValueChanged(withControl control : UIControl) {
         for queue in queues {
-            let asyncExpectation = expectationWithDescription("ValueChanged triggered asynchronously on \(control)")
+            let asyncExpectation = expectation(description: "ValueChanged triggered asynchronously on \(control)")
             control.events.valueChanged += async(queue: queue) { event in
-                XCTAssert(event.type == .ValueChanged)
+                XCTAssert(event.type == .valueChanged)
                 asyncExpectation.fulfill()
             }
         }
-        let syncExpectation = expectationWithDescription("ValueChanged triggered synchronously on \(control)")
+        let syncExpectation = expectation(description: "ValueChanged triggered synchronously on \(control)")
         control.events.valueChanged += { event in
-            XCTAssert(event.type == .ValueChanged)
+            XCTAssert(event.type == .valueChanged)
             syncExpectation.fulfill()
         }
-        control.sendActionsForControlEvents(.ValueChanged)
-        waitForExpectationsWithTimeout(2, handler: nil)
+        control.sendActions(for: .valueChanged)
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
     func passForAllEditingEvents(withControl control : UIControl) {
         for queue in queues {
-            let asyncExpectation = expectationWithDescription("AllEditingEvents triggered asynchronously on \(control)")
+            let asyncExpectation = expectation(description: "AllEditingEvents triggered asynchronously on \(control)")
             control.events.allEditingEvents += async(queue: queue) { event in
-                XCTAssert(event.type == .AllEditingEvents)
+                XCTAssert(event.type == .allEditingEvents)
                 asyncExpectation.fulfill()
             }
         }
-        let syncExpectation = expectationWithDescription("AllEditingEvents triggered synchronously on \(control)")
+        let syncExpectation = expectation(description: "AllEditingEvents triggered synchronously on \(control)")
         control.events.allEditingEvents += { event in
-            XCTAssert(event.type == .AllEditingEvents)
+            XCTAssert(event.type == .allEditingEvents)
             syncExpectation.fulfill()
         }
-        control.sendActionsForControlEvents(.AllEditingEvents)
-        waitForExpectationsWithTimeout(2, handler: nil)
+        control.sendActions(for: .allEditingEvents)
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
     func passForAllEvents(withControl control : UIControl) {
         for queue in queues {
-            let asyncExpectation = expectationWithDescription("AllEvents triggered asynchronously on \(control)")
+            let asyncExpectation = expectation(description: "AllEvents triggered asynchronously on \(control)")
             control.events.allEvents += async(queue: queue) { event in
-                XCTAssert(event.type == .AllEvents)
+                XCTAssert(event.type == .allEvents)
                 asyncExpectation.fulfill()
             }
         }
-        let syncExpectation = expectationWithDescription("AllEvents triggered synchronously on \(control)")
+        let syncExpectation = expectation(description: "AllEvents triggered synchronously on \(control)")
         control.events.allEvents += { event in
-            XCTAssert(event.type == .AllEvents)
+            XCTAssert(event.type == .allEvents)
             syncExpectation.fulfill()
         }
-        control.sendActionsForControlEvents(.AllEvents)
-        waitForExpectationsWithTimeout(2, handler: nil)
+        control.sendActions(for: .allEvents)
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
     func makeFullEventTriggerRun(withControl control: UIControl) {
@@ -182,47 +180,48 @@ class EventExecutionTests: XCTestCase {
     
     func test_UIButtonEvents() {
         let control = vc.testButton
-        makeFullEventTriggerRun(withControl: control)
+
+        makeFullEventTriggerRun(withControl: control!)
         
     }
     
     func test_UIStepperEvents() {
         let control = vc.testStepper
-        makeFullEventTriggerRun(withControl: control)
+        makeFullEventTriggerRun(withControl: control!)
 
     }
     
     func test_UISwitchEvents() {
         let control = vc.testSwitch
-        makeFullEventTriggerRun(withControl: control)
+        makeFullEventTriggerRun(withControl: control!)
 
     }
     
     func test_UISegmentedControlEvents() {
         let control = vc.testSegmentedControl
-        makeFullEventTriggerRun(withControl: control)
+        makeFullEventTriggerRun(withControl: control!)
     }
     
     func test_UISliderEvents() {
         let control = vc.testSlider
-        makeFullEventTriggerRun(withControl: control)
+        makeFullEventTriggerRun(withControl: control!)
     }
     
     func test_UIPageControlEvents() {
         let control = vc.testPageControl
-        makeFullEventTriggerRun(withControl: control)
+        makeFullEventTriggerRun(withControl: control!)
     }
     
     func test_UITextFieldEvents() {
         let control = vc.testTextField
-        makeFullEventTriggerRun(withControl: control)
+        makeFullEventTriggerRun(withControl: control!)
 
 
     }
     
     func test_UIDatePickerEvents() {
         let control = vc.testDatePicker
-        makeFullEventTriggerRun(withControl: control)
+        makeFullEventTriggerRun(withControl: control!)
 
 
     }
@@ -232,25 +231,25 @@ class EventExecutionTests: XCTestCase {
     
     func test_RemoveAsyncEvent() {
         
-        let triggeredExpectation = expectationWithDescription("Event triggered")
+        let triggeredExpectation = expectation(description: "Event triggered")
         
-        let identifier = vc.testButton.events.touchUpInside +=  async(queue: .UserInteractiveQueue){ event in
+        let identifier = vc.testButton.events.touchUpInside +=  async(queue: .global(qos: .userInteractive)){ event in
             //Make sure first event doesn't trigger
-            XCTFail("Non removed event triggered")
+            XCTFail("Removed event triggered")
         }
         
         //Second event not removed and should trigger
-        vc.testButton.events.touchUpInside += async(queue: .BackgroundQueue){ event in
-            XCTAssertTrue(event.type == .TouchUpInside)
+        vc.testButton.events.touchUpInside += async(queue: .global(qos: .background)){ event in
+            XCTAssertTrue(event.type == .touchUpInside)
             triggeredExpectation.fulfill()
         }
         
         //Remove first event
         vc.testButton.events.touchUpInside -= identifier
         
-        vc.testButton.sendActionsForControlEvents(.TouchUpInside)
+        vc.testButton.sendActions(for: .touchUpInside)
         
-        waitForExpectationsWithTimeout(1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
         
     }
     
@@ -258,7 +257,7 @@ class EventExecutionTests: XCTestCase {
         
         let firstCount = vc.testButton.events.touchUpInside.count
         
-        vc.testButton.events.touchUpInside -= NSUUID().UUIDString
+        vc.testButton.events.touchUpInside -= UUID().uuidString
         
         XCTAssertTrue(vc.testButton.events.touchUpInside.count == firstCount)
         
@@ -266,14 +265,14 @@ class EventExecutionTests: XCTestCase {
     
     func test_RemoveSameIdentifierMultipleTimes() {
         
-        let triggeredExpectation = expectationWithDescription("Control event triggered")
+        let triggeredExpectation = expectation(description: "Control event triggered")
         
         vc.testButton.events.touchUpInside += { _ in
             triggeredExpectation.fulfill()
         }
         
         let identifier = vc.testButton.events.touchUpInside += { event in
-            XCTAssertTrue(event.type == .TouchUpInside)
+            XCTAssertTrue(event.type == .touchUpInside)
             XCTFail("Triggered event that was removed")
         }
         
@@ -292,10 +291,10 @@ class EventExecutionTests: XCTestCase {
             XCTFail("Removed nonexisting event from handler")
         }
         
-        vc.testButton.sendActionsForControlEvents(.TouchUpInside)
+        vc.testButton.sendActions(for: .touchUpInside)
         
         
-        waitForExpectationsWithTimeout(1, handler: nil)
+        waitForExpectations(timeout: 1, handler: nil)
         
     }
     
