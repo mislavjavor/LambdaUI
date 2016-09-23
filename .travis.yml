@@ -2,6 +2,4 @@ language: objective-c
 osx_image: xcode8
 before_install: gem install cocoapods xcpretty obcd slather -N
 after_success: slather
-xcode_workspace: LambdaUI.xcworkspace
-xcode_scheme: LambdaUI
-xcode_sdk: iphonesimulator10.0
+script: xcodebuild test -scheme LambdaUI -sdk iphonesimulator10.0 -destination "name=iPhone SE"
