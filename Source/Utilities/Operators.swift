@@ -14,11 +14,6 @@ public func += (left: inout [Event], right: @escaping (EventWrapper) -> Void) ->
 	return newEvent.uuid
 }
 
-public func += (left: inout [Event], right: @escaping (EventWrapper)->Void) {
-    let newEvent = Event(eventFunction: right)
-    left.append(newEvent)
-}
-
 public func -= (left: inout [Event], right: String) -> Bool {
 	for item in left.enumerated() {
 		if item.element.uuid == right {
